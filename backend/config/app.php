@@ -177,7 +177,7 @@ return [
         /*
         * Twitter Login
         */
-        \SocialiteProviders\Manager\ServiceProvider::class
+        \SocialiteProviders\Manager\ServiceProvider::class,
     ],
 
     /*

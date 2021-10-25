@@ -11,10 +11,26 @@
   <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 </head>
   <body>
+
     <div id="app">
       <app></app>
-      <example-component></example-component>
+      <router-link v-bind:to="{name: 'user.detail.create'}">
+        <button class="btn btn-success">Home</button>
+      </router-link>
+      <!-- @auth
+      <div>
+          <img src="" width="48" height="48">
+          {{ Auth::user()->unique_id }}
+      </div>
+      @endif -->
+      <router-view
+        :user_name='{{ json_encode(Auth::user()->name) }}'
+        :unique_id='{{ json_encode(Auth::user()->unique_id) }}'
+        :avatar='{{ json_encode(Auth::user()->avatar) }}'
+      ></router-view>
     </div>
+    <script>
+    </script>
     <script src=" {{ mix('js/app.js') }} "></script>
   </body>
 </html>

@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\AuthController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,6 +18,11 @@ use App\Http\Controllers\IndexController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+Route::prefix('auth')->group(function () {
+  Route::get('twitter', [AuthController::class,'login']);
+  Route::get('twitter/callback', [AuthController::class,'callback']);
+});
+
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
