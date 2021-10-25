@@ -5,6 +5,8 @@
  */
 
 require('./bootstrap');
+import DetailInputComponent from "./components/DetailInputComponent";
+import VueRouter from 'vue-router'
 
 window.Vue = require('vue').default;
 
@@ -21,12 +23,26 @@ window.Vue = require('vue').default;
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
+Vue.component('detail-input-component', DetailInputComponent);
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+ const router = new VueRouter({
+  mode: 'history',
+  routes: [
+      {
+          path: '/user_detail/create',
+          name: 'user.detail.create',
+          component: DetailInputComponent
+      },
+  ]
 
+});
+Vue.use(VueRouter);
 const app = new Vue({
     el: '#app',
+    router
 });
