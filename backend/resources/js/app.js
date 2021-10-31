@@ -6,7 +6,10 @@
 
 require('./bootstrap');
 import DetailInputComponent from "./components/DetailInputComponent";
+import SearchComponent from "./components/SearchComponent";
+import FormComponent from "./components/FormComponent";
 import VueRouter from 'vue-router'
+import IfComponent from "./components/IfComponent";
 
 window.Vue = require('vue').default;
 
@@ -24,6 +27,9 @@ window.Vue = require('vue').default;
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
 Vue.component('detail-input-component', DetailInputComponent);
+Vue.component('search-component', SearchComponent);
+Vue.component('form-component', FormComponent);
+Vue.component('if-component', IfComponent);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -33,13 +39,26 @@ Vue.component('detail-input-component', DetailInputComponent);
  const router = new VueRouter({
   mode: 'history',
   routes: [
-      {
-          path: '/user_detail/create',
-          name: 'user.detail.create',
-          component: DetailInputComponent
-      },
+    {
+      path: '/home',
+      name: 'home',
+    },
+    {
+      path: '/',
+      name: '',
+      component: IfComponent,
+    },
+    {
+      path: '/user_detail_create',
+      name: 'user.detail.create',
+      component: DetailInputComponent
+    },
+    {
+      path: '/search',
+      name: 'search',
+      component: SearchComponent
+    }
   ]
-
 });
 Vue.use(VueRouter);
 const app = new Vue({

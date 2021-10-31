@@ -24,6 +24,5 @@ Route::prefix('auth')->group(function () {
 });
 
 Auth::routes();
-
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/{any?}', [IndexController::class,'index'])->where('any', '^(?!api\/)[\/\w\.-]*')->name('index');

@@ -22,4 +22,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::post('/create_skill_detail',[App\Http\Controllers\DetailController::class, 'store']);
+Route::post('/add_p_skill',[App\Http\Controllers\DetailController::class, 'add_p_skill']);
+Route::post('/add_w_skill',[App\Http\Controllers\DetailController::class, 'add_w_skill']);
+Route::post('/create_skill',[App\Http\Controllers\DetailController::class, 'createSkill']);
+Route::get('/tagList',[App\Http\Controllers\DetailController::class, 'test']);
 Route::get('/user_detail/create/{}', [DetailController::class,'create']);

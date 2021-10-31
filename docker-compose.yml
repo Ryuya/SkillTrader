@@ -3,6 +3,7 @@ volumes:
   php-fpm-socket:
   db-store:
   psysh-store:
+  pma-session-store:
 services:
   app:
     build:
@@ -69,3 +70,13 @@ services:
       - MYSQL_USER=${DB_USER:-phper}
       - MYSQL_PASSWORD=${DB_PASS:-secret}
       - MYSQL_ROOT_PASSWORD=${DB_PASS:-secret}
+  pma:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      - PMA_HOST=db
+      - PMA_USER=${DB_USER:-phper}
+      - PMA_PASSWORD=${DB_PASS:-secret}
+    ports:
+      - 8080:80
+    volumes:
+      - pma-session-store:/sessions

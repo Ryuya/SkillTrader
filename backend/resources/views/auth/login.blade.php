@@ -4,9 +4,9 @@
 <div class="container" style="font-family: var(--font-latin-hero);">
     <div class="row justify-content-center">
         <div class="col-md-12 py-3">
-          <div class="col-md-12 card"style=" height:500px; ">
+          <div class="col-md-12 card"style=" height:400px; ">
             <div class="row">
-              <div class="col-md-6 " style="height: 500px; ">
+              <div class="col-md-6 " style="height: 400px; ">
                   <div class="card-body col-md-12">
                     <div class="card-title" ><h3>持っているスキルをトレードする</h3></div>
                     <div class="d-flex align-items-center" style="height:300px;">
